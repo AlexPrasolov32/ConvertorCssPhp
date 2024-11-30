@@ -1,0 +1,34 @@
+<!-- input.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ввод текста</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Введите текст</h1>
+    <form action="inputAbout.php" method="post">
+        <textarea name = "textarea" rows="10" cols="50" placeholder="Введите ваш текст CSS файла здесь..." required></textarea><br><br>
+
+        <label><input type="checkbox" name="options[]" value="option1">Конвертировать всё в одну строку</label><br>
+        <label><input type="checkbox" name="options[]" value="option2">Поставить все свойства в алфавитном порядке</label><br>
+        <label><input type="checkbox" name="options[]" value="option3">Форматировать названия свойств в заглавные буквы</label><br>
+        <label><input type="checkbox" name="options[]" value="option4">Форматировать названия свойств в строчные буквы</label><br><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+    <button onclick="window.location.href='index.html'">Назад</button>
+    <p class = "error"><?php
+
+if (isset($_SESSION["errorInput"])) {
+    printf($_SESSION["errorInput"]);
+    unset($_SESSION["errorInput"]);
+}
+?></p>
+
+</div>
+</body>
+</html>
